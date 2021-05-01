@@ -133,6 +133,13 @@
         calculator.setExpression({id: "graph2", latex: "y = cx^2"});
 
         document.getElementById("newFunction").addEventListener("click", randomizeFunction);
+        problem();
+    };
+
+    let problem = function() {
+        window.currentFunction = choose(functionTypes);
+        window.currentFunctionData = currentFunction.generator();
+        calculator.setExpression({id: "graph3", latex: currentFunction.display(currentFunctionData)});
     };
 
     document.addEventListener("DOMContentLoaded", init);
